@@ -1,0 +1,36 @@
+module EtudiantModule {
+
+    // Structure pour représenter une épreuve
+    struct Epreuve {
+        string nom;
+        float note;
+        long coefficient;
+    };
+
+    // Séquence d'épreuves
+    typedef sequence<Epreuve> ListeEpreuves;
+
+    // Structure pour un étudiant avec moyenne
+    struct EtudiantInfo {
+        string nom;
+        float moyenne;
+    };
+
+    // Séquence d'étudiants
+    typedef sequence<EtudiantInfo> ListeEtudiants;
+
+    // Interface Etudiant
+    interface Etudiant {
+        // Ajouter une épreuve pour un étudiant
+        boolean ajouterUneEpreuve(in string nomEtudiant, in Epreuve epreuve);
+
+        // Lister les épreuves d'un étudiant
+        ListeEpreuves listeDesEpreuves(in string nomEtudiant);
+
+        // Calculer la moyenne d'un étudiant
+        float calculerLaMoyenne(in string nomEtudiant);
+
+        // Lister les 10 premiers étudiants
+        ListeEtudiants listerLes10Premiers();
+    };
+};

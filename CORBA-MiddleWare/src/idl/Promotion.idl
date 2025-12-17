@@ -1,0 +1,36 @@
+module PromotionModule {
+
+    // Structure pour représenter une épreuve
+    struct Epreuve {
+        string nom;
+        float note;
+        long coefficient;
+    };
+
+    // Séquence d'épreuves
+    typedef sequence<Epreuve> ListeEpreuves;
+
+    // Structure pour un étudiant avec moyenne
+    struct EtudiantInfo {
+        string nom;
+        float moyenne;
+    };
+
+    // Séquence d'étudiants
+    typedef sequence<EtudiantInfo> ListeEtudiants;
+
+    // Interface Promotion
+    interface Promotion {
+        // Créer un nouvel étudiant dans la promotion
+        boolean creerEtudiant(in string nomEtudiant);
+
+        // Rechercher un étudiant précédemment enregistré
+        boolean rechercherUnEtudiant(in string nomEtudiant);
+
+        // Calcul du ratio de réussite
+        float calculerRatioReussite();
+
+        // Obtenir la moyenne générale de toute la promotion
+        float obtenirMoyenneGenerale();
+    };
+};
